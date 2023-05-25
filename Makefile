@@ -1,26 +1,13 @@
 export SOME_ENV := someTest
 
 
-all: enroll versions terraform clean
-
-enroll:
-	echo Enrolling /identity_token_goes_here/demo_api_endpoint.jwt. If jwt is not in the correct folder, this step will fail.
-	docker run --rm \
-    --volume "${PWD}/identity_token_goes_here:/mnt" \
-    openziti/quickstart \
-    /openziti/ziti-bin/ziti edge enroll /mnt/demo_api_endpoint.jwt
+all: versions terraforms
 
 terraform:
-	terraform -chdir=./terraform init
-	terraform -chdir=./terraform apply
-
-clean:
-	rm identity_token_goes_here/demo_api_endpoint.json
+	terraform -chdir=./InfrastructureAsCode/terraform init
+	terraform -chdir=./InfrastructureAsCode/terraform apply
 
 versions:
 	aws --version
 	aws sts get-caller-identity
 	terraform --version
-
-stream: 
-	export PROMPT="NonpareilDevOps/$$(basename "$$PWD") $$ " 
