@@ -1,12 +1,12 @@
-# Ditto
-Ditto is the basis for all projects done on DuckTapeDevOps (DTDO... Ditto...) and... I need mascots! So Ditto it is!
+# FRODO
+For Real, Open DevOps! This repo is an attempt at creating Terraform modules that are repeatable and industry standard. There are a finite number of infrastructure architectures that a user may build. Most of these components are established, but there are not simplified modules that are easily undestood and quickly spun up. This repo hopes to solve that issue.
 
 
 ![Alt Text](./media/images/real-mvp.gif)
 
 MVP: Minimal Viable Product
 
-Ditto is a full-stack hello world for AWS with both a Lambda and a Fargate solution done via Terraform and Make for ease of use!
+The MVP for this project is a scalable Python FastAPI that returns hello world and can be spun up and down with minimal variables changed in a single HCL file and run with a simple MAKE command.
 
 
 ![Alt Text](./media/diagrams/mvp.png)
@@ -18,7 +18,7 @@ Ditto is a full-stack hello world for AWS with both a Lambda and a Fargate solut
 
 - Docker
 - Python
-- Flask
+- FastAPI
 - Terraform
 - AWS
   - Lambda
@@ -27,7 +27,7 @@ Ditto is a full-stack hello world for AWS with both a Lambda and a Fargate solut
   - ECR
     - Public and Private Docker Repos
   - API Gateway
-    - Lambda Authroizer
+    - Lambda Authorizer
   - Load Balancing
     - Network Load Balancer
     - SSL Termination
