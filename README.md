@@ -12,6 +12,13 @@ The MVP for this project is a scalable Python FastAPI that returns hello world a
 ![Alt Text](./media/diagrams/mvp.png)
 
 
+## Walkthrough
+
+- First we'll need to run [s3_backend](./InfrastructureAsCode/terraform/s3_backend/) in order to create an s3 backend for our .tfstate files so they are not stored locally. Within this bucket, you'll want to create a folder sctructure to match your environments.
+
+- In order to ensure that we do not delete our ACM certificates as well as our route53 domain names, we create those manually  via a separate Terraform module in the [domain](./InfrastructureAsCode/terraform/domain/) subfolder. Once the ACM and Route53 components have been created, it can take up to 30 minutes for the DNS to propogate.
+
+
 ## Tech Stack (Needs)
 
 ![Alt Text](./media/images/surprise-whats-in-the-box.gif)

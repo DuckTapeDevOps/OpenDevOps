@@ -1,6 +1,6 @@
 // Zero Ingress SG for ECS Service
-resource "aws_security_group" "zero_ingress" {
-  name        = "zero_ingress"
+resource "aws_security_group" "api_sg" {
+  name        = "${var.service_name}-sg-api"
   description = "Allow no inbound traffic"
   vpc_id      = aws_vpc.main.id
 

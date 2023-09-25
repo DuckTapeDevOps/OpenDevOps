@@ -4,6 +4,21 @@ data "aws_acm_certificate" "amazon_issued" {
   most_recent = true
 }
 
+data "aws_route53_zone" "existing_zone" {
+  name         = "ducktapedevops.com."
+}
+
+resource "aws_route53_record" "api_record" {
+  zone_id = data.aws_route53_zone.existing_zone.zone_id
+  name    = "api.${data.aws_route53_zone.existing_zone.name}"
+  type    = "A"
+  alias {
+    name                   = aws_lb.main.dns_name
+    zone_id                = aws_lb.main.zone_id
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_lb" "main" {
   name               = "${var.service_name}-alb"
   internal           = false

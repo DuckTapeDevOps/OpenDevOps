@@ -1,0 +1,1 @@
+Before you can run this module, you need to create a secret in secrets manager for "my-master-credentials" manually and then they'll be imported via data in [rds.tf](./rds.tf).
